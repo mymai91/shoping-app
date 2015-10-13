@@ -1,5 +1,4 @@
 require_relative 'item'
-require 'byebug'
 
 class Output
   attr_reader :items
