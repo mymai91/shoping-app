@@ -2,7 +2,6 @@ require 'spec_helper'
 
 describe Transform do
   before do
-
     file_path = 'spec/fixtures/order.csv'
     @products = Transform.new(file_path).csv
 
@@ -13,7 +12,6 @@ describe Transform do
     #  {:quantity=>1, :product=>"music cd", :price=>14.99, :except=>false, :imported=>false}
     #  {:quantity=>1, :product=>"box of imported chocolates", :price=>11.25, :except=>true, :imported=>true}
     # ]
-
   end
 
   describe '#except_value?' do

@@ -1,6 +1,5 @@
 require 'bigdecimal'
 class Caculator
-
   RATE_GOOD_TAX = 0.1
   RATE_IMPORTED_TAX = 0.05
   NEAREST_CENT = 1 / 0.05
@@ -39,7 +38,7 @@ class Caculator
     @result[:price] = total_price
     @result[:products] = @products
 
-    return @result
+    @result
   end
 
   def price_with_tax(good_price, sale_tax)
@@ -65,5 +64,4 @@ class Caculator
   def round_up(sale_tax)
     (sale_tax * NEAREST_CENT).ceil / NEAREST_CENT
   end
-
 end

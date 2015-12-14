@@ -5,7 +5,6 @@ require_relative 'caculator'
 require_relative 'print'
 
 class Output
-
   def self.print_bill(file)
     products = Transform.new(file).csv
 

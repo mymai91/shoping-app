@@ -1,5 +1,5 @@
 class Transform
-  EXCEPT_GOODS = ['book', 'chocolate', 'pill', 'books', 'chocolates', 'pills']
+  EXCEPT_GOODS = %w(book chocolate pill books chocolates pills)
   IMPORT_GOODS = ['imported']
 
   attr_reader :file
@@ -31,8 +31,7 @@ class Transform
       end
     end
 
-    return @orders
-
+    @orders
   end
 
   def except_value?(value)
@@ -44,5 +43,4 @@ class Transform
     value.map!(&:downcase)
     value.uniq.length != value.length
   end
-
 end

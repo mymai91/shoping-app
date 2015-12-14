@@ -1,14 +1,14 @@
 require 'spec_helper'
 
-describe "Caculator" do
-  let(:products) {
+describe 'Caculator' do
+  let(:products) do
     [
-      {:quantity=>1, :product=>"book", :price=>12.49, :except=>true, :imported=>false},
-      {:quantity=>1, :product=>"music cd", :price=>14.99, :except=>false, :imported=>false},
-      {:quantity=>1, :product=>"box of imported chocolates", :price=>11.25, :except=>true, :imported=>true},
-      {:quantity=>1, :product=>"imported bottle of perfume", :price=>47.50, :except=>false, :imported=>true}
+      { quantity: 1, product: 'book', price: 12.49, except: true, imported: false },
+      { quantity: 1, product: 'music cd', price: 14.99, except: false, imported: false },
+      { quantity: 1, product: 'box of imported chocolates', price: 11.25, except: true, imported: true },
+      { quantity: 1, product: 'imported bottle of perfume', price: 47.50, except: false, imported: true }
     ]
-  }
+  end
 
   let(:except_good)        { products[0] }
   let(:normal_good)        { products[1] }
@@ -136,5 +136,4 @@ describe "Caculator" do
       expect(price_with_tax == @import_normal_good[:price_with_tax]). to be true
     end
   end
-
 end

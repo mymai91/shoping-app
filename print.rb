@@ -1,5 +1,4 @@
 class Print
-
   attr_reader :products, :sale_tax, :price
 
   def initialize(results)
