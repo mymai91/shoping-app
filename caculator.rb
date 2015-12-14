@@ -1,10 +1,9 @@
 require 'bigdecimal'
-
 class Caculator
 
   RATE_GOOD_TAX = 0.1
   RATE_IMPORTED_TAX = 0.05
-  NEAREST_CENT = 0.05
+  NEAREST_CENT = 1 / 0.05
 
   attr_reader :products
 
@@ -44,7 +43,7 @@ class Caculator
   end
 
   def price_with_tax(good_price, sale_tax)
-    good_price + sale_tax
+    (good_price + sale_tax).round(2)
   end
 
   def good_price(quantity, price)
@@ -52,10 +51,7 @@ class Caculator
   end
 
   def sale_tax(quantity, good_tax, imported_tax)
-    quantity * (good_tax + imported_tax)
-    # tax = quantity * (good_tax + imported_tax)
-    # byebug
-    # round_up(tax)
+    round_up(quantity * (good_tax + imported_tax))
   end
 
   def good_tax(good_price, expect)
