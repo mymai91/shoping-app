@@ -15,4 +15,4 @@ class Output
   end
 end
 
-Output.print_bill('db/order.csv')
+# Output.print_bill('db/order.csv')

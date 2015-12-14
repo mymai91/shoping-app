@@ -20,10 +20,10 @@ class Caculator
       quantity = item[:quantity]
       product = item[:product]
       price = item[:price]
-      expect = item[:expect]
+      except = item[:except]
       imported = item[:imported]
 
-      good_tax = good_tax(price, expect)
+      good_tax = good_tax(price, except)
       imported_tax = imported_tax(price, imported)
       good_price = good_price(quantity, price)
       sale_tax = sale_tax(quantity, good_tax, imported_tax)
@@ -54,8 +54,8 @@ class Caculator
     round_up(quantity * (good_tax + imported_tax))
   end
 
-  def good_tax(good_price, expect)
-    expect ? 0 : (good_price * RATE_GOOD_TAX)
+  def good_tax(good_price, except)
+    except ? 0 : (good_price * RATE_GOOD_TAX)
   end
 
   def imported_tax(good_price, imported)

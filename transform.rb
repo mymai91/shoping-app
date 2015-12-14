@@ -10,7 +10,6 @@ class Transform
 
   def csv
     @orders ||= []
-
     CSV.foreach(@file, headers: true) do |row|
       quantity = row[0].strip.to_i
       price = row[2].strip.to_f
@@ -26,11 +25,10 @@ class Transform
         item[:quantity] = quantity
         item[:product] = product_val
         item[:price] = price
-        item[:expect] = except_value?(except_value)
+        item[:except] = except_value?(except_value)
         item[:imported] = imported_value?(imported_value)
         @orders << item
       end
-
     end
 
     return @orders
@@ -38,7 +36,6 @@ class Transform
   end
 
   def except_value?(value)
-    # byebug
     value.map!(&:downcase)
     value.uniq.length != value.length
   end
